@@ -1,0 +1,339 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/newsletter-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-size: $body2;
+  margin: 0 $s-xs 0 $s-xs;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $s-xs;
+    padding-top: 8rem;
+    padding-right: $s-xs;
+  
+    @media (min-width: $screen-md) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: row;
+      gap: $s-lg;
+      padding: 0;
+    }
+
+    .h1 {
+      color: $green;
+      font-weight: 300;
+      margin-bottom: 1.1rem;
+      font-size: $h1SmallMin;
+
+      @media (min-width: $screen-xs) {
+        font-size: $h1Small;
+      }
+    }
+
+    // Image.
+    &__image {
+      display: flex;
+      padding: $s-sm;
+
+      @media (min-width: $screen-md) {
+        padding: 0 0 $s-lg $s-lg;
+        justify-content: flex-end;
+      }
+      &--logo {
+        max-height: 14.375rem;
+      }
+    }
+
+    // Form.
+    &__form {
+      display: flex;
+      justify-content: left;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-right: $s-sm;
+      padding-bottom: $s-xs;
+
+      @media (min-width: $screen-md) {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+      }
+
+      // Email input field.
+      &__email {
+        @include form-input-textfield;
+        cursor: pointer;
+        margin-bottom: $s-sm;
+
+        &::placeholder {
+          font-size: $body2;
+        }
+      }
+
+      // Select2 library input field.
+      .select2-selection--single {
+        position: relative;
+        display: inline-block;
+        display: grid;
+        grid-template-areas: "select";
+        align-items: center;
+        cursor: pointer;
+        padding: 1.43rem $s-xs;
+        border-radius: 0.25rem;
+        border: $s-lGlobalY solid $off-white;
+        border-radius: 0.25rem;
+        background-color: $white;
+        border-color: $white;
+        border-style: none;
+        line-height: 1.75rem;
+
+        &:focus {
+          outline: 0.125rem solid $green;
+        }
+
+        .select2-selection__rendered {
+          border: none;
+          color: $black;
+          padding: 0;
+        }
+
+        .select2-selection__arrow b {
+          border-color: $white;
+          border-style: none;
+          background-color: transparent;
+          &::before {
+            position: absolute;
+            content: "\f107"; 
+            font-family: "Font Awesome 5 free";
+            font-weight: 900;
+            color: $green;
+            font-size: $body1;
+            right: 0.1rem;
+            top: -0.2rem;
+          }
+        }
+      }
+
+      // Overrides of select2 library.
+      .select2 {
+        width: 114% !important;
+      }
+
+      .select2-container--default.select2-container--open.select2-container--below 
+      .select2-selection--single {
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+      }
+
+      .select2-container--default.select2-container--open.select2-container--above 
+      .select2-selection--single {
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+      }
+
+      &__subscribe {
+        color: $off-white;
+        font-weight: 400;
+        font-size: $body2;
+        margin-top: $s-sm;
+
+        // Base styles for the checkbox. 
+        .checkbox {
+          display: inline-flex;
+          all: unset;
+          appearance: none;
+          cursor: pointer;
+          margin: 0 0.8rem 0 0;
+          position: relative;
+          
+          // Checkbox box. 
+          &::before {
+            content: "";
+            position: relative;
+            border: 0.125rem solid $white;
+            border-radius: 0.125rem;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: transparent;
+          }
+
+          &:focus::before {
+            outline: 1px solid $green;
+          }
+
+          // Checkbox when checked.
+          &:checked::before {
+            background-color: $green;
+            border-color: $green;
+          }
+
+          // Checkbox mark.
+          &::after {
+            position: absolute;
+            content: "\f00c";
+            font-family: "Font Awesome 5 free";
+            font-weight: 900;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.2s ease-in-out;
+            color: transparent; 
+
+            @media (min-width: $screen-xs) {
+              top: 50%;
+            }
+          }
+
+          // Checkbox mark when checked. 
+          &:checked::after {
+            color: $white;
+          }
+        }
+
+        &-checkbox {
+          display: inline-flex;
+          cursor: pointer;
+
+          &__text {
+            display: inline-block;
+          }
+          em {
+            color: $green;
+            font-size: $smallMin;
+          }
+        }
+      }
+
+      // Subscribe button.
+      &__subscribe-button {
+        @include btn;
+        border: $s-lGlobalY solid $green;
+        margin-top: 1.3rem;
+        
+        &::before {
+          content: "\f1d8";
+          font-family: "Font Awesome 5 Free";
+          margin-right: 0.375rem;
+          font-weight: 900;
+        }
+        &:hover, 
+        &:focus {
+          background-color: $d-green;
+          border: $s-lGlobalY solid $d-green;
+        }
+
+        &:focus {
+          outline: 0.125rem solid $green;
+        }
+      }
+
+      // Thank you form.  
+      &__thank-you {
+        line-height: $s-sm;
+        padding-left: $s-sm;
+
+        @media (min-width: $screen-md) {
+          inline-size: 27.563rem;
+          padding-left: 0;
+        }
+        p {  
+          color: $off-white;
+          font-weight: 400;
+          margin-bottom: $s-xs;
+        }
+        .h1 {
+          margin-bottom: $s-sm;
+        }
+      }
+
+      // Subscribe again button.
+      &__subscribe-again-button {
+        @include btn;
+        background-color: transparent;
+        border: $s-lGlobalY solid $white;
+        margin-top: 1.5rem;
+
+        &::before {
+          content: "\2b";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          margin-right: 0.375rem;
+        }
+        &:hover,
+        &:focus {
+          background-color: $transparentBlack;
+          border: $s-lGlobalY solid $white;
+          box-shadow: $shadow;
+        }
+      }
+      
+      .hidden {
+        display: none;
+      }
+  
+      .show {
+        display: block;
+      }
+    }
+
+    // For input accessibility.
+    .visually-hidden {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  }
+}
+
+// Select2 library input option.
+.select2-container--default {
+  .select2-results__option {
+    font-size: 16px;
+    background-color: $white;
+    color: $black;
+    padding: 0.5rem $s-xs;
+    border-bottom: 1px solid $light-white;
+    line-height: 2.25rem;
+
+    &:first-of-type {
+      display: none;
+    }
+  
+    &:nth-child(1) {
+      border: 1px solid $light-white;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+
+    &:last-of-type {
+      border-bottom-left-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+
+    &:focus {
+      outline: 0.125rem solid $green;
+    }
+
+    &--highlighted[aria-selected] {
+      background-color: $light-white;
+      color: $black;
+      font-size: $s-xs;
+    }
+  }
+}

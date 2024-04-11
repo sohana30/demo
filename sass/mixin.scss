@@ -1,0 +1,42 @@
+// Button.
+@mixin btn {
+  display: block;
+  background-color: $green;
+  color: $white;
+  padding: 0.625rem 1.875rem;
+  height: 3rem;
+  font-size: $body2;
+  border-radius: 0.5rem;
+  margin-top: 1.3rem;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+  
+  &:focus {
+    outline: 0.125rem solid $green;
+  }
+}
+
+@mixin form-input-textfield {
+  padding: 0.5rem $s-xs;
+  border: 0.063rem solid $off-white;
+  border-radius: 0.25rem;
+  background: $white;
+  margin-bottom: $s-sm;
+  font-size: $body2;
+  line-height: 1.75rem;
+
+  @media (min-width: $screen-xs) {
+    color: $black;
+    background: $white;
+    border: 0.063rem solid $off-white;
+    border-radius: 0.25rem;
+    padding: 0.625rem 2.4rem 0.60rem $s-xs;
+  }
+
+  &:focus {
+    outline: 0.125rem solid $green;
+  }
+}

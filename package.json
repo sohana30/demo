@@ -1,0 +1,27 @@
+{
+  "name": "newsletter-signup",
+  "version": "1.0.0",
+  "description": "SASS compiler",
+  "main": "gulpfile.js",
+  "author": "Acro Media Inc.",
+  "license": "ISC",
+  "scripts": {
+    "compile-css-postcss": "postcss css/styles.css --use autoprefixer --use cssnano --output=css/styles.css",
+    "compile": "npm run compile-css && npm run compile-css-postcss",
+    "compile-css": "sass --style=expanded --embed-source-map sass/styles.scss css/styles.css",
+    "watch": "nodemon --ignore js/ --ignore css/ -e scss -x \"npm run compile\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "browserlist": "^1.0.1",
+    "cssnano": "^6.0.1",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.30",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.57.1"
+  },
+  "browserslist": [
+    "> 5%",
+    "safari 8"
+  ]
+}

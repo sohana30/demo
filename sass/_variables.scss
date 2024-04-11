@@ -1,0 +1,35 @@
+/**
+* @file
+* Common variables.
+*/
+$green: #29AE6E;
+$d-green: #1E8654;
+$white: #FFFFFF;
+$off-white: #D7DEE0;
+$light-white: #EFEFEF;
+$black: #000000;
+$transparentBlack: rgba(0, 0, 0, 0.25);
+$shadow: 0px 5px 30px 0px #000000A6;
+
+ 
+//
+// Responsive helpers.
+//
+$screen-xs-min: 360px;
+$screen-xs: 480px;
+$screen-sm: 750px;
+$screen-md: 992px;
+
+// Spacing.
+$s-lg: 3.75rem;
+$s-sm: 1.58rem;
+$s-xs: 1rem;
+$s-lGlobalY: 0.0625rem;
+
+// Font Size.
+$h1SmallMin: 1.6875rem;
+$h1Small: 2.25rem;
+$h1Min: 2.5rem;
+$body2: 1rem;
+$body1: 1.125rem;
+$smallMin: 0.875rem;
